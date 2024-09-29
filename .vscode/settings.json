@@ -1,0 +1,12 @@
+{
+  // removes @apply tailwind error
+  "scss.lint.unknownAtRules": "ignore",
+  "css.lint.unknownAtRules": "ignore",
+
+  "tailwindCSS.experimental.classRegex": ["tw`([^`]*)"],
+
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "cSpell.words": []
+}

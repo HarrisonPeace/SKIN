@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #035f1d;
+  --secondary: #e0eac9;
+  --background: #f8f5ef;
+  --text-light: #ffffff;
+}
+
+@layer base {
+  @import './base/index.scss';
+}
+
+@layer components {
+}
+
+@layer utilities {
+  @import './base/index.scss';
+}
