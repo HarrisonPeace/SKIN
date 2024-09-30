@@ -6,16 +6,19 @@
   --primary: #035f1d;
   --secondary: #e0eac9;
   --background: #f8f5ef;
-  --text-light: #ffffff;
+  --light: #ffffff;
+
+  --nav-link-padding: 18px;
 }
 
 @layer base {
-  @import './base/index.scss';
+  @import './base';
 }
 
 @layer components {
+  @import './components';
 }
 
 @layer utilities {
-  @import './base/index.scss';
+  @import './utilities';
 }

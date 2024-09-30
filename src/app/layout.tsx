@@ -3,36 +3,22 @@ import localFont from 'next/font/local'
 import clsx from 'clsx'
 import './scss/main.scss'
 
-// Nantes
-const nantesRegular = localFont({
-  src: './fonts/NantesWeb-Regular.woff2',
-  variable: '--font-nantes-regular',
-  weight: '400',
+const nantes = localFont({
+  src: [
+    { path: './fonts/NantesWeb-RegularItalic.woff2', weight: '400', style: 'italic' },
+    { path: './fonts/NantesWeb-Regular.woff2', weight: '400' },
+    { path: './fonts/NantesWeb-BoldItalic.woff2', weight: '700', style: 'italic' },
+  ],
+  variable: '--font-nantes',
 })
 
-const nantesBoldItalic = localFont({
-  src: './fonts/NantesWeb-BoldItalic.woff2',
-  variable: '--font-nantes-bolditalic',
-  weight: '700',
-})
-
-// Red Hat Display
-const redHatRegular = localFont({
-  src: './fonts/RedHatDisplay-Regular.woff',
-  variable: '--font-redhat-regular',
-  weight: '400',
-})
-
-const redHatMedium = localFont({
-  src: './fonts/RedHatDisplay-Medium.woff',
-  variable: '--font-redhat-medium',
-  weight: '500',
-})
-
-const redHatSemibold = localFont({
-  src: './fonts/RedHatDisplay-SemiBold.woff',
-  variable: '--font-redhat-semibold',
-  weight: '600',
+const redHat = localFont({
+  src: [
+    { path: './fonts/RedHatDisplay-Regular.woff', weight: '400' },
+    { path: './fonts/RedHatDisplay-Medium.woff', weight: '500' },
+    { path: './fonts/RedHatDisplay-SemiBold.woff', weight: '600' },
+  ],
+  variable: '--font-redhat',
 })
 
 export const metadata: Metadata = {
@@ -44,12 +30,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body
         className={clsx(
-          nantesRegular.variable,
-          nantesBoldItalic.variable,
-          redHatRegular.variable,
-          redHatMedium.variable,
-          redHatSemibold.variable,
-          'bg-light antialiased'
+          nantes.variable,
+          redHat.variable,
+          'text-body bg-light font-redhat antialiased'
         )}
       >
         {children}

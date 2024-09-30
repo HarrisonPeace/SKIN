@@ -8,9 +8,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      // * COLORS
       colors: {
         primary: 'var(--primary)',
         secondary: 'var(--secondary)',
+        'base-light': 'var(--light)',
       },
       backgroundColor: {
         light: 'var(--background)',
@@ -18,12 +20,46 @@ const config: Config = {
       },
       textColor: {
         dark: 'var(--primary)',
-        light: 'var(--text-light)',
+        light: 'var(--light)',
       },
-    },
-    fontFamily: {
-      nantes: ['Nantes', 'Helvetica Neue', 'Arial', 'sans-serif'],
-      redhat: ['RedHatDisplay', 'Impact', 'Arial Black', 'sans-serif'],
+      // * FONTS
+      fontFamily: {
+        nantes: ['var(--font-nantes)', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        redhat: ['var(--font-redhat)', 'Arial', 'sans-serif'],
+      },
+      fontSize: {
+        title: [
+          '3.5rem', // 56px
+          {
+            lineHeight: '4.2rem', //68px
+          },
+        ],
+        'sub-title': [
+          '1.625rem', // 25px
+          {
+            lineHeight: '2.188rem', //35px
+          },
+        ],
+        body: [
+          '1rem', // 16px
+          {
+            lineHeight: '1.375rem', //22px
+          },
+        ],
+        small: [
+          '0.875rem', //14px
+          {
+            lineHeight: '1.125rem', // 18px
+          },
+        ],
+      },
+      // * OTHER
+      screens: {
+        '3xl': '2000px',
+      },
+      transitionTimingFunction: {
+        'out-quad': 'cubic-bezier(0.5, 1, 0.89, 1)',
+      },
     },
   },
   plugins: [],
