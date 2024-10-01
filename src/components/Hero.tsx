@@ -8,10 +8,10 @@ export default function Hero() {
     >
       <h1 className="flex flex-col items-center justify-center text-title font-semibold uppercase text-light">
         <div>
-          Be the <span className="font-nantes font-normal">energy</span>
+          Be the <span className="font-nantes font-normal italic">energy</span>
         </div>
         <div>
-          you want to <span className="font-nantes font-normal">attract</span>
+          you want to <span className="font-nantes font-normal italic">attract</span>
         </div>
       </h1>
 

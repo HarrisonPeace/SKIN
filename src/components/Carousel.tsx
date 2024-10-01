@@ -105,14 +105,16 @@ export default function Carousel() {
                   <div
                     className={clsx([
                       transitionStyles,
-                      'flex items-center justify-between pb-6 text-dark group-focus-within/slide:pb-5 group-focus-within/slide:text-light group-hover/slide:pb-5 group-hover/slide:text-light',
+                      'flex items-end justify-between pb-6 text-dark group-focus-within/slide:pb-5 group-focus-within/slide:text-light group-hover/slide:pb-5 group-hover/slide:text-light',
                     ])}
                   >
                     <div>
-                      <p className="font-medium uppercase">{slide.product}</p>
-                      <p className="text-small italic">{slide.description}</p>
+                      <p className="text-small font-medium uppercase tracking-[0.84px]">
+                        {slide.product}
+                      </p>
+                      <p className="font-nantes text-small italic">{slide.description}</p>
                     </div>
-                    <p>${slide.price}</p>
+                    <p className="font-[15px] tracking-[0.3px]">${slide.price}</p>
                   </div>
 
                   <div

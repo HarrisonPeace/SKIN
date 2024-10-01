@@ -33,7 +33,7 @@ export default function Button({
     switch (buttonStyle) {
       case 'rounded':
         styleClasses = clsx(
-          tw`rounded-[40px] border px-4 py-2 transition-all hover:border-secondary hover:bg-secondary hover:text-dark`,
+          tw`rounded-[40px] border px-4 py-2 text-xs uppercase transition-all hover:border-secondary hover:bg-secondary hover:text-dark`,
           buttonColor === 'dark' ? tw`border-primary` : tw`border-base-light`
         )
         break
