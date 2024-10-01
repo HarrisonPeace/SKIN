@@ -1,6 +1,8 @@
 import clsx from 'clsx'
 import Link, { LinkProps } from 'next/link'
 
+import tw from '@/lib/tw'
+
 interface ButtonProps {
   children: React.ReactNode
   buttonStyle?: 'rounded' | 'underlined'
@@ -22,22 +24,37 @@ export default function Button({
   type = 'button',
   onClick,
 }: ButtonProps) {
+  const getButtonClasses = () => {
+    const defaultClasses = tw`group/button`
+    const fullWidthClasses = fullWidth ? tw`flex w-full items-center justify-center` : tw`w-fit`
+    const defaultColorClasses = buttonColor === 'dark' ? tw`text-dark` : tw`text-light`
+    let styleClasses = ''
+
+    switch (buttonStyle) {
+      case 'rounded':
+        styleClasses = clsx(
+          tw`rounded-[40px] border px-4 py-2 transition-all hover:border-secondary hover:bg-secondary hover:text-dark`,
+          buttonColor === 'dark' ? tw`border-primary` : tw`border-base-light`
+        )
+        break
+
+      case 'underlined':
+        styleClasses = tw`font-nantes text-sub-title italic`
+        break
+
+      default:
+        // This should never occur
+        break
+    }
+
+    return clsx(defaultClasses, defaultColorClasses, fullWidthClasses, styleClasses)
+  }
+
   const content = (
-    <button
-      type={type}
-      onClick={onClick}
-      className={clsx([
-        'group/button',
-        fullWidth ? 'flex w-full items-center justify-center' : 'w-fit',
-        buttonStyle === 'rounded'
-          ? 'rounded-[40px] border px-4 py-2 transition-all hover:border-secondary hover:bg-secondary hover:text-dark'
-          : 'font-nantes text-sub-title italic',
-        buttonColor === 'dark' ? 'border-primary text-dark' : 'border-base-light text-light',
-      ])}
-    >
+    <button type={type} onClick={onClick} className={getButtonClasses()}>
       <div
         className={clsx(
-          buttonStyle === 'rounded' &&
+          buttonStyle === 'underlined' &&
             'transition-transform ease-out-quad group-hover/button:translate-x-1'
         )}
       >

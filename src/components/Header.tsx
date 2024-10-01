@@ -1,9 +1,10 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
-import Link from 'next/link'
-import Logo from './Logo'
 import clsx from 'clsx'
+import Link from 'next/link'
+import { useEffect, useRef, useState } from 'react'
+
+import Logo from './Logo'
 
 const headerHeight = 54
 
@@ -14,6 +15,8 @@ const navLinks = [
   { text: 'Ingredients', href: '#' },
   { text: 'Account', href: '#', pushRight: true },
 ]
+
+const colorTransitionStyles = 'transition-colors duration-500 ease-out-quad'
 
 export default function Header() {
   // * Header Transition Logic
@@ -72,53 +75,50 @@ export default function Header() {
 
   // * Cart Logic
   const [cartCount] = useState(0)
-  const onClick = () => console.log('OPEN CART')
 
   return (
     <div
       className={clsx(
-        'left-0 top-0 z-50 w-screen',
+        'left-0 top-0 z-50 w-full',
         isPastThreshold ? 'fixed' : 'absolute',
         isPastThresholdDelay && 'transition-transform duration-300',
-        isPastThreshold && !isVisible ? '-translate-y-full' : 'translate-y-0'
+        isPastThreshold && !isVisible ? '-translate-y-full' : 'translate-y-0',
+        isPastThresholdColors && 'bg-secondary'
       )}
       style={{ height: `${headerHeight}px` }}
     >
-      <header
-        className={clsx(
-          isPastThresholdColors ? 'bg-secondary text-dark' : 'text-light',
-          'page-container flex items-center justify-center gap-10 text-small font-semibold uppercase tracking-[0.7px] transition-colors duration-500 ease-out-quad'
-        )}
-      >
-        {navLinks.map((link, idx) => (
-          <Link
-            key={idx}
-            href={link.href}
-            className={clsx(
-              ['py-[var(--nav-link-padding)] transition-opacity hover:opacity-60'],
-              link.pushRight && 'ml-auto'
-            )}
-          >
-            {link.text}
-          </Link>
-        ))}
-
-        <button
-          className="py-[var(--nav-link-padding)] uppercase tracking-[0.7px] transition-opacity hover:opacity-60"
-          onClick={onClick}
+      <div className={clsx(colorTransitionStyles, isPastThresholdColors && 'bg-secondary')}>
+        <header
+          className={clsx(
+            isPastThresholdColors ? 'text-dark' : 'text-light',
+            colorTransitionStyles,
+            'page-container flex items-center justify-center gap-10 text-small font-semibold uppercase tracking-[0.7px]'
+          )}
         >
-          Cart ({cartCount})
-        </button>
+          {navLinks.map((link, idx) => (
+            <Link
+              key={idx}
+              href={link.href}
+              className={clsx(
+                ['py-[var(--nav-link-padding)] transition-opacity hover:opacity-60'],
+                link.pushRight && 'ml-auto'
+              )}
+            >
+              {link.text}
+            </Link>
+          ))}
 
-        <Link href="/" className="absolute left-1/2 -translate-x-1/2 transform">
-          <Logo
-            className={clsx(
-              'transition-colors duration-500 ease-out-quad',
-              isPastThresholdColors ? 'fill-primary' : ''
-            )}
-          />
-        </Link>
-      </header>
+          <button className="py-[var(--nav-link-padding)] uppercase tracking-[0.7px] transition-opacity hover:opacity-60">
+            Cart ({cartCount})
+          </button>
+
+          <Link href="/" className="absolute left-1/2 -translate-x-1/2 transform">
+            <Logo
+              className={clsx(colorTransitionStyles, isPastThresholdColors ? 'fill-primary' : '')}
+            />
+          </Link>
+        </header>
+      </div>
     </div>
   )
 }

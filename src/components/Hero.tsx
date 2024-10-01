@@ -6,7 +6,7 @@ export default function Hero() {
       className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-light bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: 'url(hero.webp)' }}
     >
-      <h1 className="text-title flex flex-col items-center justify-center font-semibold uppercase text-light">
+      <h1 className="flex flex-col items-center justify-center text-title font-semibold uppercase text-light">
         <div>
           Be the <span className="font-nantes font-normal">energy</span>
         </div>

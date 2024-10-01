@@ -1,6 +1,7 @@
+import clsx from 'clsx'
 import { Metadata } from 'next'
 import localFont from 'next/font/local'
-import clsx from 'clsx'
+
 import './scss/main.scss'
 
 const nantes = localFont({
@@ -32,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className={clsx(
           nantes.variable,
           redHat.variable,
-          'text-body bg-light font-redhat text-dark antialiased'
+          'bg-light font-redhat text-body text-dark antialiased'
         )}
       >
         {children}

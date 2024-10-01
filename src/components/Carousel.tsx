@@ -1,13 +1,12 @@
 'use client'
 
-import { useEffect, useState, useRef } from 'react'
-import { Swiper, SwiperSlide, SwiperCore } from 'swiper/react'
-import Image from 'next/image'
+import 'swiper/css'
 import clsx from 'clsx'
+import Image from 'next/image'
+import { useEffect, useRef, useState } from 'react'
+import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react'
 
 import Button from './Button'
-
-import 'swiper/css'
 
 const transitionStyles = 'transition-all duration-300 ease-out-quad'
 
@@ -64,24 +63,24 @@ const slides = [
 
 export default function Carousel() {
   const [loaded, setLoaded] = useState(false)
-  const swiperRef = useRef<SwiperCore | null>(null)
+  const swiperRef = useRef<SwiperClass | null>(null)
 
   useEffect(() => {
     setLoaded(true)
-    setTimeout(() => {
-      // swiperRef.current.updateAutoHeight()
-    }, 0)
+    if (swiperRef.current) {
+      swiperRef.current.updateAutoHeight()
+    }
   }, [])
 
   return (
     <div className="page-container">
-      <div className={loaded ? '' : 'hidden'}>
+      <div className={loaded ? '' : 'invisible'}>
         <Swiper
           spaceBetween={8}
           slidesPerView={3}
           grabCursor
-          onInit={(core: SwiperCore) => {
-            swiperRef.current = core
+          onInit={(swiper: SwiperClass) => {
+            swiperRef.current = swiper
           }}
         >
           {slides.map((slide, idx) => (
@@ -122,12 +121,7 @@ export default function Carousel() {
                       'h-0 overflow-hidden pb-0 pt-0 transition-all group-focus-within/slide:h-[60px] group-focus-within/slide:pb-6 group-hover/slide:h-[60px] group-hover/slide:pb-6',
                     ])}
                   >
-                    <Button
-                      buttonColor="light"
-                      buttonStyle="rounded"
-                      fullWidth
-                      onClick={() => console.log('Added to cart')}
-                    >
+                    <Button buttonColor="light" buttonStyle="rounded" fullWidth>
                       Add to Cart
                     </Button>
                   </div>
@@ -145,7 +139,7 @@ export default function Carousel() {
         </Swiper>
       </div>
 
-      <div className={clsx(['h-[800px]', loaded && 'hidden'])}></div>
+      <div className={clsx(['h-[523px]', loaded && 'hidden'])}></div>
 
       <div className="flex items-center justify-center pb-[60px] pt-[50px]">
         <Button buttonColor="dark" buttonStyle="underlined">
