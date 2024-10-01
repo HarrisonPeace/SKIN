@@ -1,5 +1,3 @@
-'use client'
-
 import clsx from 'clsx'
 import Link, { LinkProps } from 'next/link'
 
@@ -30,24 +28,26 @@ export default function Button({
       onClick={onClick}
       className={clsx([
         'group/button',
-        fullWidth ? 'flex items-center justify-center' : 'w-fit',
-        buttonStyle === 'rounded' ? '' : 'text-sub-title font-nantes italic',
-        buttonColor === 'dark' ? 'text-dark' : 'text-light',
+        fullWidth ? 'flex w-full items-center justify-center' : 'w-fit',
+        buttonStyle === 'rounded'
+          ? 'rounded-[40px] border px-4 py-2 transition-all hover:border-secondary hover:bg-secondary hover:text-dark'
+          : 'font-nantes text-sub-title italic',
+        buttonColor === 'dark' ? 'border-primary text-dark' : 'border-base-light text-light',
       ])}
     >
       <div
-        className={clsx([
-          buttonStyle === 'rounded'
-            ? ''
-            : 'ease-out-quad transition-transform group-hover/button:translate-x-1',
-        ])}
+        className={clsx(
+          buttonStyle === 'rounded' &&
+            'transition-transform ease-out-quad group-hover/button:translate-x-1'
+        )}
       >
         {children}
       </div>
+
       {buttonStyle === 'underlined' && (
         <div
           className={clsx([
-            'ease-out-quad mt-2 h-[1px] w-full transition-all group-hover/button:-translate-x-1',
+            'mt-2 h-[1px] w-full transition-all ease-out-quad group-hover/button:-translate-x-1',
             buttonColor === 'dark' ? 'bg-primary' : 'bg-base-light',
           ])}
         />

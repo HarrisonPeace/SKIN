@@ -3,7 +3,7 @@ import Button from './Button'
 export default function Hero() {
   return (
     <div
-      className="relative flex h-screen w-screen items-center justify-center overflow-hidden bg-light bg-cover bg-center bg-no-repeat"
+      className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-light bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: 'url(hero.webp)' }}
     >
       <h1 className="text-title flex flex-col items-center justify-center font-semibold uppercase text-light">

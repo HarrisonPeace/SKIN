@@ -32,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className={clsx(
           nantes.variable,
           redHat.variable,
-          'text-body bg-light font-redhat antialiased'
+          'text-body bg-light font-redhat text-dark antialiased'
         )}
       >
         {children}
