@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Coding Challenge
+This repository contains the solution to a coding challenge I completed for a Developer role I applied for.
 
-## Getting Started
+## Live Site
+You can view the live site here: https://skin-blond.vercel.app/
 
-First, run the development server:
+## Technologies Used
+- Next.js
+- Tailwind CSS
+- Swiper.js
+  
+## Features Implemented
+### Header
+- Sticky header with show/hide behavior on scroll.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Hero Banner
+- Accessible Carousel using Swiper.js.
+- Cards are fully tabbable for improved accessibility.
+- Default browser active styles applied (no custom overrides).
+#### Carousel Notes
+- Swiper.js was used, though it presented some challenges in Next.js.
+- Workarounds were applied for issues such as flashing and excess padding under the carousel, but further optimization or a different package might be needed for full compatibility.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Custom Fonts
+- Custom fonts are implemented throughout the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Hover Effects
+- Basic hover effects applied to links and buttons.
+- Carousel cards also feature hover effects.
+  
+## Known Issues
+- The carousel may flash or show excess padding under it due to challenges with the Swiper.js package. I believe I've found some workarounds, but further tweaks or an alternative package might be needed to fully resolve these issues in Next.js.
+- The design is not fully responsive and only built for a laptop screen, so it may not display correctly on smaller or larger screens.
